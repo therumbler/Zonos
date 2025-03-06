@@ -1,4 +1,5 @@
 FROM pytorch/pytorch:2.6.0-cuda12.4-cudnn9-devel
+EXPOSE 7860
 RUN pip install uv
 
 RUN apt update && \

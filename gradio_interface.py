@@ -216,7 +216,7 @@ def build_interface():
             "| This probably means the mamba-ssm library has not been installed."
         )
 
-    with gr.Blocks() as demo:
+    with gr.Blocks(title="Zonos Gradio HTML Interface") as demo:
         with gr.Row():
             with gr.Column():
                 model_choice = gr.Dropdown(

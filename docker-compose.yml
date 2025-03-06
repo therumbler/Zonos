@@ -6,11 +6,18 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: zonos_container
-    runtime: nvidia
-    network_mode: "host"
+    ports:
+      - 7860:7860
     stdin_open: true
     tty: true
     command: ["python3", "gradio_interface.py"]
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
       - GRADIO_SHARE=False
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
